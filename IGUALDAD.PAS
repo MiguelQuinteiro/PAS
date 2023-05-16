@@ -1,0 +1,50 @@
+
+(****************************************************************************)
+(* PROGRAMA  : IGUALDAD.pas                                                 *)
+(* CONTENIDO : Determinar la igualdad de dos matrices                       *)
+(* AUTOR     : Miguel Angel Quinteiro                                       *)
+(* FECHA     : 10 - 10 - 1999                                               *)
+(****************************************************************************)
+
+
+PROGRAM IGUALDAD;
+TYPE
+  MATRIZ = ARRAY[1..10,1..10] OF INTEGER;
+
+VAR
+  I,J,N,CONT:INTEGER;
+  MAT1,MAT2:MATRIZ;
+
+BEGIN
+WRITELN('INTRODUZCA CUMERO DE FILAS Y COLUMNAS (MAXIMO 10)');
+READLN(N);
+WRITELN('INTRODUZCA EL VALOR ENTERO DE CADA POSICION');
+ FOR I := 1 TO N DO
+  BEGIN
+  FOR J := 1 TO N DO
+   BEGIN
+   WRITELN('POSICION: ',I,'',J);
+   READLN(MAT1[I,J]);
+   READLN(MAT2[I,J]);
+   END;
+  END;
+  CONT:=0;
+
+(* IGUALDAD DE MATRICES *)
+  FOR I := 1 TO N DO
+  BEGIN
+   FOR J := 1 TO N DO
+   BEGIN
+    IF MAT1[I,J] <> MAT2[I,J] THEN
+       CONT := CONT + 1
+   END;
+  END;
+  IF CONT > 0 THEN
+    WRITELN('LAS DOS MATRICES NO SON IGUALES')
+  ELSE
+    WRITELN('LAS DOS MATRICES SON IGUALES');
+END.
+
+
+
+
